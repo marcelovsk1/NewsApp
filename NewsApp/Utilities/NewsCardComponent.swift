@@ -26,6 +26,14 @@ struct NewsCardComponent: View {
                     .foregroundColor(.white)
                     .bold()
                     .padding(.horizontal, 16)
+                
+                Text(article.description ?? "")
+                    .font(.caption2)
+                    .foregroundColor(.white)
+                    .bold()
+                    .lineLimit(1)
+                    .truncationMode(.tail)
+                    .padding(.bottom, 4)
             }
         }
         .padding(4)
