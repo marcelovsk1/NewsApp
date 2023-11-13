@@ -13,7 +13,25 @@ struct NewsView: View {
     @State private var isLoading = true
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack {
+                ScrollView {
+                    if isLoading != true {
+                        ForEach(articles) { article in
+                            NewsCardComponent(article: article)
+                        }
+                    }
+                }
+            }
+            .navigationTitle("News Feed")
+            .preferredColorScheme(.dark)
+            .onAppear {
+                newsManager.getNew(category: "general") { newsResponse in
+                    articles = newsResponse
+                    isLoading = false
+                }
+            }
+        }
     }
 }
 
