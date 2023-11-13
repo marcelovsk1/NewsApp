@@ -20,6 +20,8 @@ struct NewsView: View {
                         ForEach(articles) { article in
                             NewsCardComponent(article: article)
                         }
+                    } else {
+                        ProgressView()
                     }
                 }
             }
