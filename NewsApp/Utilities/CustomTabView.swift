@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CostomTabView: View {
+struct CustomTabView: View {
     @Binding var tabSelection: Int
     @Namespace private var AnimationNameSpace
     
@@ -58,5 +58,5 @@ struct CostomTabView: View {
 }
 
 #Preview {
-    CostomTabView(tabSelection: .constant(1))
+    CustomTabView(tabSelection: .constant(1))
 }
