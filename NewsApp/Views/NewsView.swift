@@ -28,7 +28,7 @@ struct NewsView: View {
             .navigationTitle("News Feed")
             .preferredColorScheme(.dark)
             .onAppear {
-                newsManager.getNew(category: "general") { newsResponse in
+                newsManager.getNews(category: "general") { newsResponse in
                     articles = newsResponse
                     isLoading = false
                 }
