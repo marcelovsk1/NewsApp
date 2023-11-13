@@ -32,6 +32,8 @@ struct SearchView: View {
                             updateNewsArticles()
                         } label: {
                             Image(systemName: "xmark.circle.fill")
+                                .foregroundColor(.gray)
+                                .padding(.leading, 8)
                         }
                     }
                 }
@@ -39,13 +41,33 @@ struct SearchView: View {
                 .padding(.horizontal, 16)
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(10)
+                
+                if searchText == "" {
+                    Picker("Picker", selection: $selectedGenre) {
+                        Text("General").tag("general")
+                        Text("Business").tag("business")
+                        Text("Entertaiment").tag("entertaiment")
+                        Text("Sports").tag("sports")
+                        Text("Science").tag("science")
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                    .padding(.vertical, 15)
+                }
+                
+                ScrollView {
+                    if isLoading != true {
+                        ForEach(articles) { article in
+                            NewsCardComponent(article: article)
+
+                        }
+                    }
+                }
             }
             .preferredColorScheme(.dark)
             .onAppear(perform: updateNewsArticles)
             .onChange(of: selectedGenre) { _ in
                 isLoading = true
                 updateNewsArticles()
-            
             }
             .onChange(of: searchText) { _ in
                 isLoading = true
