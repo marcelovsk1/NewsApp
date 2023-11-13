@@ -11,6 +11,10 @@
 		0B45691C2B0293C600BCC93F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B45691B2B0293C600BCC93F /* ContentView.swift */; };
 		0B45691E2B0293CB00BCC93F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B45691D2B0293CB00BCC93F /* Assets.xcassets */; };
 		0B4569212B0293CB00BCC93F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B4569202B0293CB00BCC93F /* Preview Assets.xcassets */; };
+		0B45692B2B02951000BCC93F /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B45692A2B02951000BCC93F /* NewsView.swift */; };
+		0B45692D2B02951D00BCC93F /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B45692C2B02951D00BCC93F /* SearchView.swift */; };
+		0B45692F2B02952B00BCC93F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B45692E2B02952B00BCC93F /* SettingsView.swift */; };
+		0B4569312B0295F600BCC93F /* CostomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4569302B0295F600BCC93F /* CostomTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		0B45691B2B0293C600BCC93F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0B45691D2B0293CB00BCC93F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B4569202B0293CB00BCC93F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0B45692A2B02951000BCC93F /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
+		0B45692C2B02951D00BCC93F /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		0B45692E2B02952B00BCC93F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		0B4569302B0295F600BCC93F /* CostomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostomTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +60,9 @@
 			isa = PBXGroup;
 			children = (
 				0B4569192B0293C600BCC93F /* NewsAppApp.swift */,
-				0B45691B2B0293C600BCC93F /* ContentView.swift */,
+				0B4569282B0294F200BCC93F /* Utilities */,
+				0B4569292B0294FD00BCC93F /* Models */,
+				0B4569272B0294E400BCC93F /* Views */,
 				0B45691D2B0293CB00BCC93F /* Assets.xcassets */,
 				0B45691F2B0293CB00BCC93F /* Preview Content */,
 			);
@@ -65,6 +75,32 @@
 				0B4569202B0293CB00BCC93F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0B4569272B0294E400BCC93F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0B45691B2B0293C600BCC93F /* ContentView.swift */,
+				0B45692A2B02951000BCC93F /* NewsView.swift */,
+				0B45692C2B02951D00BCC93F /* SearchView.swift */,
+				0B45692E2B02952B00BCC93F /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0B4569282B0294F200BCC93F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0B4569302B0295F600BCC93F /* CostomTabView.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0B4569292B0294FD00BCC93F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +173,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B45692F2B02952B00BCC93F /* SettingsView.swift in Sources */,
+				0B45692D2B02951D00BCC93F /* SearchView.swift in Sources */,
+				0B45692B2B02951000BCC93F /* NewsView.swift in Sources */,
 				0B45691C2B0293C600BCC93F /* ContentView.swift in Sources */,
 				0B45691A2B0293C600BCC93F /* NewsAppApp.swift in Sources */,
+				0B4569312B0295F600BCC93F /* CostomTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
