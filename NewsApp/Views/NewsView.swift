@@ -18,7 +18,12 @@ struct NewsView: View {
                 ScrollView {
                     if isLoading != true {
                         ForEach(articles) { article in
-                            NewsCardComponent(article: article)
+                            NavigationLink {
+                                ArticleView(article: article)
+                                
+                            } label: {
+                                NewsCardComponent(article: article)
+                            }
                         }
                     } else {
                         ProgressView()
