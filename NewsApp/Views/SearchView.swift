@@ -19,7 +19,23 @@ struct SearchView: View {
         NavigationView {
             VStack {
                 HStack {
+                    TextField("Search...", text: $searchText)
+                        .padding(.leading, 20)
                     
+                    if searchText.isEmpty {
+                        Image(systemName: "magnufyingglass")
+                            .foregroundColor(.gray)
+                            .padding(.leading, 8)
+                    } else {
+                        Button {
+                            searchText = ""
+                            updateNewsArticles()
+                        } label: {
+                            Image(systemName: "xmark.circle.fill")
+                                .foregroundColor(.gray)
+                                .padding(.leading, 8)
+                        }
+                    }
                 }
                 .padding(.vertical, 8)
                 .padding(.horizontal, 16)
