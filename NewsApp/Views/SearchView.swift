@@ -53,6 +53,13 @@ struct SearchView: View {
                     .pickerStyle(SegmentedPickerStyle())
                     .padding(.vertical, 15)
                 }
+                ScrollView {
+                    if isLoading != true {
+                        ForEach(articles) { article in
+                                NewsCardComponent(article: article)
+                        }
+                    }
+                }
             }
             .preferredColorScheme(.dark)
             .onAppear(perform: updateNewsArticles)
