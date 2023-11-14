@@ -41,6 +41,18 @@ struct SearchView: View {
                 .padding(.horizontal, 16)
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(10)
+                
+                if searchText == "" {
+                    Picker("Picker", selection: $selectedGenre) {
+                        Text("General").tag("general")
+                        Text("Business").tag("business")
+                        Text("Entertaiment").tag("entertaiment")
+                        Text("Sports").tag("sports")
+                        Text("Science").tag("science")
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                    .padding(.vertical, 15)
+                }
             }
             .preferredColorScheme(.dark)
             .onAppear(perform: updateNewsArticles)
