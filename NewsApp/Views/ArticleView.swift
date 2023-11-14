@@ -6,13 +6,33 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ArticleView: View {
+    var article: NewsResponse.Article
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            ScrollView {
+                VStack {
+                    Text(article.title)
+                        .font(.title2)
+                        .bold()
+                    
+                    KFImage(URL(string: article.urlToImage ?? ""))
+                        .resizable()
+                        .scaledToFill()
+                    
+                    Text(article.content ?? "")
+                        .padding(.horizontal)
+                        .font(.body)
+                }
+            }
+            .preferredColorScheme(.dark)
+        }
     }
 }
 
 #Preview {
-    ArticleView()
+    ArticleView(article: NewsResponse.Article(title: "", url: ""))
 }
