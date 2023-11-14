@@ -56,7 +56,12 @@ struct SearchView: View {
                 ScrollView {
                     if isLoading != true {
                         ForEach(articles) { article in
+                            NavigationLink {
+                                ArticleView(article: article)
+                                
+                            } label: {
                                 NewsCardComponent(article: article)
+                            }
                         }
                     }
                 }
