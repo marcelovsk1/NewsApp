@@ -65,13 +65,13 @@ struct SearchView: View {
             }
             .preferredColorScheme(.dark)
             .onAppear(perform: updateNewsArticles)
-            .onChange(of: selectedGenre) { _ in
+            .onChange(of: selectedGenre) { newValue in
                 isLoading = true
                 updateNewsArticles()
             }
-            .onChange(of: searchText) { _ in
-                isLoading = true
-                updateNewsArticles()
+            .onChange(of: searchText) { newValue in
+                 isLoading = true
+                 updateNewsArticles()
             }
         }
     }
