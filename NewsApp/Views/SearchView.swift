@@ -16,11 +16,38 @@ struct SearchView: View {
     
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack {
+                HStack {
+                    
+                }
+                .padding(.vertical, 8)
+                .padding(.horizontal, 16)
+                .background(Color.gray.opacity(0.2))
+                .cornerRadius(10)
+            }
+            .preferredColorScheme(.dark)
+            .onAppear(perform: updateNewsArticles)
+            .onChange(of: selectedGenre) { newGenre in
+                isLoading = true
+                updateNewsArticles()
+            }
+            .onChange(of: searchText) { newSearch in
+                isLoading = true
+                updateNewsArticles()
+            }
+        }
     }
     
     private func updateNewsArticles() {
         newsManager.getNews(category: selectedGenre) { newsResponse in
+            articles = newsResponse
+            isLoading = false
+        }
+    }
+    
+    private func updateNewsArticlesFromSearch() {
+        newsManager.getNewsFromSearch(search: searchText) { newsResponse in
             articles = newsResponse
             isLoading = false
         }
