@@ -18,11 +18,13 @@ struct NewsView: View {
                 ScrollView {
                     if isLoading != true {
                         ForEach(articles) { article in
+                            let type = predictSentement(text: article.title)
+                            
                             NavigationLink {
                                 ArticleView(article: article)
                                 
                             } label: {
-                                NewsCardComponent(article: article, type: <#String#>)
+                                NewsCardComponent(article: article, type: type ?? "Neutral")
                             }
                         }
                     } else {
