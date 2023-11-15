@@ -25,6 +25,15 @@ struct NewsView: View {
     var body: some View {
         NavigationView {
             VStack {
+                Picker("", selection: $selectedSegment) {
+                    Text("All News").tag(0)
+                    Text("Good News!").tag(1)
+                    Text("Bad News!").tag(2)
+                } label: {
+                    <#code#>
+                }
+
+                
                 ScrollView {
                     if isLoading != true {
                         ForEach(articles) { article in
