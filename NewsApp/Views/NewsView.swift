@@ -27,16 +27,16 @@ struct NewsView: View {
             VStack {
                 Picker("", selection: $selectedSegment) {
                     Text("All News").tag(0)
-                    Text("Good News!").tag(1)
-                    Text("Bad News!").tag(2)
-                } label: {
-                    <#code#>
+                    Text("Good News").tag(1)
+                    Text("Bad News").tag(2)
                 }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding(.horizontal)
 
                 
                 ScrollView {
                     if isLoading != true {
-                        ForEach(articles) { article in
+                        ForEach(filteredArticles) { article in
                             let type = predictSentement(text: article.title)
                             
                             NavigationLink {
