@@ -51,7 +51,7 @@ struct NewsView: View {
                     }
                 }
             }
-            .navigationTitle("News Feed")
+            .navigationTitle("DailyTrends")
             .preferredColorScheme(.dark)
             .onAppear {
                 newsManager.getNews(category: "general") { newsResponse in
