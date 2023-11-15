@@ -21,6 +21,7 @@
 		0B45693C2B03F6E700BCC93F /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B45693B2B03F6E700BCC93F /* ArticleView.swift */; };
 		0BA861B72B0554010094F6B6 /* MyTextClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0BA861B62B0554010094F6B6 /* MyTextClassifier.mlmodel */; };
 		0BA861B92B0554460094F6B6 /* TextClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA861B82B0554460094F6B6 /* TextClassifier.swift */; };
+		0BA861BC2B05803A0094F6B6 /* PurchaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA861BB2B05803A0094F6B6 /* PurchaseViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		0BA861B62B0554010094F6B6 /* MyTextClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MyTextClassifier.mlmodel; sourceTree = "<group>"; };
 		0BA861B82B0554460094F6B6 /* TextClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextClassifier.swift; sourceTree = "<group>"; };
 		0BA861BA2B057EF60094F6B6 /* Product.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Product.storekit; sourceTree = "<group>"; };
+		0BA861BB2B05803A0094F6B6 /* PurchaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				0B4569322B029A7B00BCC93F /* NewsManager.swift */,
+				0BA861BB2B05803A0094F6B6 /* PurchaseViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B45692F2B02952B00BCC93F /* SettingsView.swift in Sources */,
+				0BA861BC2B05803A0094F6B6 /* PurchaseViewModel.swift in Sources */,
 				0B45692B2B02951000BCC93F /* NewsView.swift in Sources */,
 				0BA861B92B0554460094F6B6 /* TextClassifier.swift in Sources */,
 				0B45691C2B0293C600BCC93F /* ContentView.swift in Sources */,
