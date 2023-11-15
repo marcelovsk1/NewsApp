@@ -11,6 +11,16 @@ struct NewsView: View {
     var newsManager = NewsManager()
     @State private var articles = [NewsResponse.Article]()
     @State private var isLoading = true
+    @State private var selectedSegment = 0
+    
+    var filteredArticles: [NewsResponse.Article] {
+        if selectedSegment == 0 {
+            return articles
+        } else {
+            let sentiment = selectedSegment == 1 ? "Positive" : "Negative"
+            return articles.filter { predictSentement(text: $0.title) == sentiment }
+        }
+    }
     
     var body: some View {
         NavigationView {
