@@ -19,8 +19,17 @@ class PurchaseViewModel: ObservableObject {
     
     var updateListenerTask: Task<Void, Error>? = nil
     
-    // init
-    // denit
+    init() {
+        updateListenerTask = listenForTransactions()
+        Task {
+            await requestProducts()
+            await updateCustomerProduct()
+        }
+    }
+        
+    deinit {
+            updateListenerTask?.cancel()
+    }
     
     @MainActor
     func requestProducts() async {
@@ -36,9 +45,11 @@ class PurchaseViewModel: ObservableObject {
             for await result in Transaction.updates {
                 do {
                     let transaction = try self.checkVerified(result)
+                    await self.updateCustomerProduct()
                     
+                    await transaction.finish()
                 } catch {
-                    
+                    print("Transation failed verification")
                 }
             }
         }
