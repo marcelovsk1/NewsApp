@@ -35,12 +35,14 @@ class PurchaseViewModel: ObservableObject {
         return Task.detached {
             for await result in Transaction.updates {
                 do {
+                    let transaction = try self.checkVerified(result)
                     
                 } catch {
                     
                 }
             }
         }
+        
     }
     
     func checkVerified<T>(_ result: VerificationResult<T>) throws -> T {
@@ -49,6 +51,26 @@ class PurchaseViewModel: ObservableObject {
             throw StoreError.failedVerification
         case .verified(let safe):
             return safe
+        }
+    }
+    
+    @MainActor
+    func updateCustomerProduct() async {
+        for await result in Transaction.currentEntitlements {
+            do {
+               let transaction = try checkVerified(result)
+                switch transaction.productType {
+                case .autoRenewable:
+                    if let subscriptions = subscriptions.first(where: { $0.id == transaction.productID }) {
+                        purchasedSubscriptions.append(subscriptions)
+                    }
+                default:
+                    break
+                }
+                await transaction.finish()
+            } catch {
+                print("Failed updating products")
+            }
         }
     }
 }
