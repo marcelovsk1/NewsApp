@@ -38,6 +38,7 @@
 		0B45693B2B03F6E700BCC93F /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
 		0BA861B62B0554010094F6B6 /* MyTextClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MyTextClassifier.mlmodel; sourceTree = "<group>"; };
 		0BA861B82B0554460094F6B6 /* TextClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextClassifier.swift; sourceTree = "<group>"; };
+		0BA861BA2B057EF60094F6B6 /* Product.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Product.storekit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +109,7 @@
 				0B4569302B0295F600BCC93F /* CustomTabView.swift */,
 				0B4569342B02A38100BCC93F /* NewsCardComponent.swift */,
 				0BA861B82B0554460094F6B6 /* TextClassifier.swift */,
+				0BA861BA2B057EF60094F6B6 /* Product.storekit */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
