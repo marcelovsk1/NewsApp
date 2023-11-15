@@ -16,4 +16,43 @@ class PurchaseViewModel: ObservableObject {
     @Published private var subscriptionGroupStatus: RenewalState?
     
     private let productsIds: [String] = ["subscription.yearly", "subscription.monthly"]
+    
+    var updateListenerTask: Task<Void, Error>? = nil
+    
+    // init
+    // denit
+    
+    @MainActor
+    func requestProducts() async {
+        do {
+            subscriptions = try await Product.products(for: productsIds)
+        } catch {
+            print("Failed product request from app store sever \(error)")
+        }
+    }
+    
+    func listenForTransactions() -> Task<Void, Error> {
+        return Task.detached {
+            for await result in Transaction.updates {
+                do {
+                    
+                } catch {
+                    
+                }
+            }
+        }
+    }
+    
+    func checkVerified<T>(_ result: VerificationResult<T>) throws -> T {
+        switch result {
+        case .unverified:
+            throw StoreError.failedVerification
+        case .verified(let safe):
+            return safe
+        }
+    }
+}
+
+enum StoreError: Error {
+    case failedVerification
 }
