@@ -92,6 +92,31 @@
           "referenceName" : "Yearly",
           "subscriptionGroupID" : "04047D34",
           "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "5.90",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "6836841A",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "",
+              "displayName" : "",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "subscription.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Monthly",
+          "subscriptionGroupID" : "04047D34",
+          "type" : "RecurringSubscription"
         }
       ]
     }
