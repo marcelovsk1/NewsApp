@@ -45,6 +45,7 @@ struct NewsCardComponent: View {
                     }
                 }
                 
+                Spacer()
                 
                 VStack(alignment: .leading, spacing: 4) {
                     Text(article.title)

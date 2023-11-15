@@ -22,7 +22,7 @@ struct NewsView: View {
                                 ArticleView(article: article)
                                 
                             } label: {
-                                NewsCardComponent(article: article)
+                                NewsCardComponent(article: article, type: <#String#>)
                             }
                         }
                     } else {
