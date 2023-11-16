@@ -36,7 +36,7 @@ struct CustomTabView: View {
                             if index + 1 == tabSelection {
                                 Capsule()
                                     .frame(height: 8)
-                                    .foregroundColor(.indigo)
+                                    .foregroundColor(.red)
                                     .matchedGeometryEffect(id: "SelectedTabID", in: AnimationNameSpace)
                                     .offset(y: 3)
                             } else {
@@ -46,7 +46,7 @@ struct CustomTabView: View {
                                     .offset(y: 3)
                             }
                         }
-                        .foregroundColor(index + 1 == tabSelection ? .indigo : .gray)
+                        .foregroundColor(index + 1 == tabSelection ? .red : .gray)
                     }
                 }
             }
