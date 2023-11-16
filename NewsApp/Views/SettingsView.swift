@@ -77,8 +77,12 @@ struct SettingsView: View {
                 .preferredColorScheme(.dark)
             } else {
                 Form {
-                    
+                    Section("About") {
+                        Text("This app keeps you up to date on the latest news. Premium content coming soon")
+                    }
                 }
+                .navigationTitle("Settings")
+                .preferredColorScheme(.dark)
             }
         }
         .task {
