@@ -43,7 +43,7 @@ struct SettingsView: View {
                             VStack {
                                 Text("Monthly")
                                     .font(.headline)
-                                    Text("5.90/Month")
+                                Text("5.90/Month")
                                     .font(.subheadline)
                                     .foregroundStyle(.secondary)
                             }
@@ -57,25 +57,28 @@ struct SettingsView: View {
                             VStack {
                                 Text("Yearly")
                                     .font(.headline)
-                                    Text("29.90/Year")
+                                Text("29.90/Year")
                                     .font(.subheadline)
                                     .foregroundStyle(.secondary)
+                            }
                         }
                     }
                         
-                        Spacer()
+                    Spacer()
                         
-                        Text("By subscribing, you agree to the terms of use and privacy policy.")
-                            .font(.footnote)
-                            .multilineTextAlignment(.center)
-                            .foregroundColor(.secondary)
-                            .padding(.bottom)
+                    Text("By subscribing, you agree to the terms of use and privacy policy.")
+                        .font(.footnote)
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.secondary)
+                        .padding(.bottom)
                         
                 }
                 .padding()
                 .preferredColorScheme(.dark)
             } else {
-                
+                Form {
+                    
+                }
             }
         }
         .task {
