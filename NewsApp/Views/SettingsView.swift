@@ -28,7 +28,40 @@ struct SettingsView: View {
                         .frame(width: 120, height: 120)
                         .padding(.bottom)
                     
+                    Text("Unlock all features with a subscription.")
+                        .font(.headline)
+                        .multilineTextAlignment(.center)
+                        .padding(.bottom, 10)
                     
+                    HStack {
+                        Button {
+                            Task {
+                                let viewModel = purchaseViewModel
+                                await buy(product: viewModel.subscriptions[1])
+                            }
+                        } label: {
+                            VStack {
+                                Text("Monthly")
+                                    .font(.headline)
+                                    Text("5.90/Month")
+                                    .font(.subheadline)
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                        
+                        Button {
+                            Task {
+                                await buy(product: purchaseViewModel.subscriptions.first!)
+                            }
+                        } label: {
+                            VStack {
+                                Text("Yearly")
+                                    .font(.headline)
+                                    Text("29.90/Year")
+                                    .font(.subheadline)
+                                    .foregroundStyle(.secondary)
+                        }
+                    }
                 }
                 .padding()
                 .preferredColorScheme(.dark)
