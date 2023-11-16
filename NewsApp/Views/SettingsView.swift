@@ -14,7 +14,27 @@ struct SettingsView: View {
     
     var body: some View {
         NavigationView {
-            
+            if purchased == false {
+                VStack {
+                    Text("Subscribe to access settings")
+                        .font(.largeTitle)
+                        .multilineTextAlignment(.center)
+                        .padding(.top)
+                    
+                    Spacer()
+                    
+                    Image(systemName: "lock.circle.fill")
+                        .resizable()
+                        .frame(width: 120, height: 120)
+                        .padding(.bottom)
+                    
+                    
+                }
+                .padding()
+                .preferredColorScheme(.dark)
+            } else {
+                
+            }
         }
         .task {
             if purchaseViewModel.purchasedSubscriptions.isEmpty {
