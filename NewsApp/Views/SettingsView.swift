@@ -62,6 +62,15 @@ struct SettingsView: View {
                                     .foregroundStyle(.secondary)
                         }
                     }
+                        
+                        Spacer()
+                        
+                        Text("By subscribing, you agree to the terms of use and privacy policy.")
+                            .font(.footnote)
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(.secondary)
+                            .padding(.bottom)
+                        
                 }
                 .padding()
                 .preferredColorScheme(.dark)
