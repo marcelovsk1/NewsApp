@@ -11,9 +11,9 @@ import StoreKit
 typealias RenewalState = StoreKit.Product.SubscriptionInfo.RenewalInfo
 
 class PurchaseViewModel: ObservableObject {
-    @Published private var subscriptions: [Product] = []
-    @Published private var purchasedSubscriptions: [Product] = []
-    @Published private var subscriptionGroupStatus: RenewalState?
+    @Published var subscriptions: [Product] = []
+    @Published var purchasedSubscriptions: [Product] = []
+    @Published var subscriptionGroupStatus: RenewalState?
     
     private let productsIds: [String] = ["subscription.yearly", "subscription.monthly"]
     
@@ -26,9 +26,9 @@ class PurchaseViewModel: ObservableObject {
             await updateCustomerProduct()
         }
     }
-        
+    
     deinit {
-            updateListenerTask?.cancel()
+        updateListenerTask?.cancel()
     }
     
     @MainActor
@@ -69,7 +69,7 @@ class PurchaseViewModel: ObservableObject {
     func updateCustomerProduct() async {
         for await result in Transaction.currentEntitlements {
             do {
-               let transaction = try checkVerified(result)
+                let transaction = try checkVerified(result)
                 switch transaction.productType {
                 case .autoRenewable:
                     if let subscriptions = subscriptions.first(where: { $0.id == transaction.productID }) {
@@ -82,6 +82,28 @@ class PurchaseViewModel: ObservableObject {
             } catch {
                 print("Failed updating products")
             }
+        }
+    }
+    
+    func purchase(_ product: Product) async throws -> Transaction? {
+        let result = try await product.purchase()
+        
+        switch result {
+        case .success(let verification):
+            do {
+                let transaction = try checkVerified(verification)
+                await updateCustomerProduct()
+                await transaction.finish()
+                return transaction
+            } catch {
+                print("Failed finishing transaction: \(error)")
+                return nil
+            }
+        case .userCancelled, .pending:
+            return nil
+        default:
+            return nil
+                
         }
     }
 }
