@@ -13,7 +13,16 @@ struct SettingsView: View {
     @AppStorage("purchased") var purchased = false
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            
+        }
+        .task {
+            if purchaseViewModel.purchasedSubscriptions.isEmpty {
+                purchased = false
+            } else {
+                purchased = true
+            }
+        }
     }
     
     func buy(product: Product) async {
