@@ -26,7 +26,7 @@ struct NewsView: View {
         NavigationView {
             VStack {
                 Picker("", selection: $selectedSegment) {
-                    Text("All News").tag(0)
+                    Text("Breaking News").tag(0)
                     Text("Good News").tag(1)
                     Text("Bad News").tag(2)
                 }
