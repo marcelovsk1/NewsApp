@@ -52,7 +52,7 @@ struct NewsView: View {
                 }
             }
             .navigationTitle("DailyTrends")
-            .preferredColorScheme(.dark)
+            .preferredColorScheme(.light)
             .onAppear {
                 newsManager.getNews(category: "general") { newsResponse in
                     articles = newsResponse
